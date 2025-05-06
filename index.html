@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Access Web Terminals with IDE | Interactive Shell</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-[#1a1d21] text-white min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="py-4 px-6 bg-[#2a2e35]/80 backdrop-blur-sm fixed w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <span class="text-green-400 text-2xl">></span>
+                <span class="text-xl font-semibold">Interactive Shell</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="/terminal.html" class="hover:text-green-400 transition-colors">Terminal</a>
+                <a href="https://desktop.interactiveshell.com" class="hover:text-green-400 transition-colors">Desktop</a>
+                <a href="/drive" class="hover:text-green-400 transition-colors">IDE Drive</a>
+                <a href="/pricing" class="hover:text-green-400 transition-colors">Pricing</a>
+                <a href="/training" class="hover:text-green-400 transition-colors">Training</a>
+                <a href="/blog" class="hover:text-green-400 transition-colors">Blog</a>
+                <a href="/about" class="hover:text-green-400 transition-colors">About</a>
+                <a href="/contact" class="hover:text-green-400 transition-colors">Contact</a>
+            </div>
+            <button class="md:hidden text-white">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-20">
+        <!-- Hero Section -->
+        <section class="py-20 px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-green-400 via-cyan-400 to-blue-500">
+                A Powerful Development Tool
+            </h1>
+            <div class="flex flex-wrap justify-center gap-8 text-xl mb-12">
+                <span class="text-green-400 flex items-center">
+                    <i class="fas fa-terminal mr-2"></i>Terminal
+                </span>
+                <span class="text-cyan-400 flex items-center">
+                    <i class="fas fa-code mr-2"></i>Online IDE
+                </span>
+                <span class="text-purple-400 flex items-center">
+                    <i class="fas fa-robot mr-2"></i>AI Assist
+                </span>
+            </div>
+
+            <!-- Try Terminal Button -->
+            <div class="mb-12">
+                <a href="/terminal.html" class="inline-flex items-center px-8 py-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all duration-300 transform hover:-translate-y-1">
+                    <i class="fas fa-terminal mr-2"></i>
+                    Try Terminal Now
+                </a>
+            </div>
+
+            <!-- OS Selection -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <button class="os-button bg-[#2a2e35] p-4 rounded-lg hover:bg-[#3a3e45] transition-all duration-300">
+                        <div class="flex items-center space-x-3">
+                            <i class="fab fa-ubuntu text-2xl text-green-400"></i>
+                            <span>Ubuntu (24.04)</span>
+                        </div>
+                    </button>
+                    <button class="os-button bg-[#2a2e35] p-4 rounded-lg hover:bg-[#3a3e45] transition-all duration-300">
+                        <div class="flex items-center space-x-3">
+                            <i class="fab fa-redhat text-2xl text-red-400"></i>
+                            <div class="flex items-center">
+                                <span>RHEL (8.1)</span>
+                                <span class="ml-2 text-xs bg-green-400/20 text-green-400 px-2 py-1 rounded">Pro</span>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="os-button bg-[#2a2e35] p-4 rounded-lg hover:bg-[#3a3e45] transition-all duration-300">
+                        <div class="flex items-center space-x-3">
+                            <i class="fab fa-suse text-2xl text-green-400"></i>
+                            <div class="flex items-center">
+                                <span>OpenSuSE (15.1)</span>
+                                <span class="ml-2 text-xs bg-green-400/20 text-green-400 px-2 py-1 rounded">Pro</span>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="os-button bg-[#2a2e35] p-4 rounded-lg hover:bg-[#3a3e45] transition-all duration-300">
+                        <div class="flex items-center space-x-3">
+                            <i class="fab fa-windows text-2xl text-blue-400"></i>
+                            <div class="flex items-center">
+                                <span>Windows (PS 7)</span>
+                                <span class="ml-2 text-xs bg-green-400/20 text-green-400 px-2 py-1 rounded">Pro</span>
+                            </div>
+                        </div>
+                    </button>
+                    <button class="os-button bg-[#2a2e35] p-4 rounded-lg hover:bg-[#3a3e45] transition-all duration-300">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-globe text-2xl text-blue-400"></i>
+                            <div class="flex items-center">
+                                <span>WebSSH</span>
+                                <span class="ml-2 text-xs bg-green-400/20 text-green-400 px-2 py-1 rounded">Pro</span>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Terminal Preview -->
+            <div class="max-w-3xl mx-auto">
+                <div class="terminal-window bg-[#2a2e35] rounded-lg overflow-hidden shadow-2xl">
+                    <!-- Terminal Header -->
+                    <div class="terminal-header flex items-center p-3 bg-[#1a1d21]">
+                        <div class="flex space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <span class="ml-4 text-sm text-gray-400">Useful hints</span>
+                    </div>
+                    
+                    <!-- Terminal Body -->
+                    <div class="p-6 font-mono text-sm space-y-4">
+                        <div class="terminal-line">
+                            <span class="text-green-400">$</span>
+                            <span class="ml-2">Access IDE workspace files from the</span>
+                            <code class="mx-2 bg-[#1a1d21] px-2 py-1 rounded text-green-400">/mnt</code>
+                            <span>folder</span>
+                            <span class="text-green-400 ml-2">(Pro)</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="text-green-400">$</span>
+                            <span class="ml-2">Compile with:</span>
+                            <code class="mx-2 bg-[#1a1d21] px-2 py-1 rounded text-green-400">gcc</code>
+                            <code class="mx-2 bg-[#1a1d21] px-2 py-1 rounded text-cyan-400">python3</code>
+                            <code class="mx-2 bg-[#1a1d21] px-2 py-1 rounded text-yellow-400">java</code>
+                            <span>and more.</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="text-green-400">$</span>
+                            <span class="ml-2">Start AI assist with the command:</span>
+                            <code class="mx-2 bg-[#1a1d21] px-2 py-1 rounded text-purple-400">ai</code>
+                            <span class="text-green-400">(Pro)</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="text-green-400">$</span>
+                            <span class="ml-2">Record your terminal with:</span>
+                            <code class="mx-2 bg-[#1a1d21] px-2 py-1 rounded text-red-400">asciinema rec</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#2a2e35] py-8 px-6 mt-20">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <span class="text-green-400 text-2xl">></span>
+                    <span class="text-xl font-semibold">Interactive Shell</span>
+                </div>
+                <div class="flex space-x-6 social-icons">
+                    <a href="https://www.facebook.com/interactivesh" class="text-2xl hover:text-green-400 transition-colors">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://x.com/interactivesh" class="text-2xl hover:text-green-400 transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@InteractiveShell" class="text-2xl hover:text-green-400 transition-colors">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center text-gray-400">
+                <p>© Interactive Shell 2025.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent -->
+    <div id="cookie-consent" class="fixed bottom-0 left-0 right-0 bg-[#2a2e35]/95 backdrop-blur-sm border-t border-gray-700 p-6 transform transition-transform duration-300">
+        <div class="container mx-auto max-w-4xl">
+            <h3 class="text-xl font-bold mb-3">Your privacy matters</h3>
+            <p class="mb-6 text-gray-300">Cookies and similar technologies are used on our sites to personalise content and ads. You can find further details and change your personal settings below.</p>
+            <div class="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4">
+                <button onclick="acceptCookies()" class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors">
+                    Accept All
+                </button>
+                <button class="px-6 py-2 border border-gray-500 rounded-md hover:bg-[#3a3e45] transition-colors">
+                    Customize
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

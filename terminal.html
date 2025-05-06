@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal | Interactive Shell</title>
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- XTerm.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.3.0/css/xterm.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/xterm@5.3.0/lib/xterm.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm-addon-fit@0.8.0/lib/xterm-addon-fit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm-addon-web-links@0.9.0/lib/xterm-addon-web-links.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xterm-addon-search@0.13.0/lib/xterm-addon-search.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        .xterm-viewport::-webkit-scrollbar {
+            width: 8px;
+        }
+        .xterm-viewport::-webkit-scrollbar-track {
+            background: #1a1d21;
+        }
+        .xterm-viewport::-webkit-scrollbar-thumb {
+            background: #3a3e45;
+            border-radius: 4px;
+        }
+        .xterm-viewport::-webkit-scrollbar-thumb:hover {
+            background: #4a4a4a;
+        }
+        #terminal-container {
+            padding: 0;
+            margin: 0;
+            height: 500px;
+        }
+    </style>
+</head>
+<body class="bg-[#1a1d21] text-white min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="py-4 px-6 bg-[#2a2e35]/80 backdrop-blur-sm fixed w-full z-50">
+        <nav class="container mx-auto flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <span class="text-green-400 text-2xl">></span>
+                <span class="text-xl font-semibold">Interactive Shell</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="/terminal.html" class="text-green-400 transition-colors">Terminal</a>
+                <a href="https://desktop.interactiveshell.com" class="hover:text-green-400 transition-colors">Desktop</a>
+                <a href="/drive" class="hover:text-green-400 transition-colors">IDE Drive</a>
+                <a href="/pricing" class="hover:text-green-400 transition-colors">Pricing</a>
+                <a href="/training" class="hover:text-green-400 transition-colors">Training</a>
+                <a href="/blog" class="hover:text-green-400 transition-colors">Blog</a>
+                <a href="/about" class="hover:text-green-400 transition-colors">About</a>
+                <a href="/contact" class="hover:text-green-400 transition-colors">Contact</a>
+            </div>
+            <button class="md:hidden text-white">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow pt-20 px-6">
+        <div class="container mx-auto">
+            <!-- Terminal Tabs -->
+            <div class="flex space-x-4 mb-4">
+                <button class="px-4 py-2 bg-[#2a2e35] rounded-t-lg text-green-400 border-b-2 border-green-400 flex items-center">
+                    <i class="fas fa-terminal mr-2"></i>Terminal 1
+                </button>
+                <button class="px-4 py-2 hover:bg-[#2a2e35] rounded-t-lg text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <!-- Terminal Window -->
+            <div class="terminal-window bg-[#2a2e35] rounded-lg overflow-hidden shadow-2xl">
+                <!-- Terminal Header -->
+                <div class="terminal-header flex items-center justify-between p-3 bg-[#1a1d21]">
+                    <div class="flex space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <select class="bg-[#2a2e35] text-sm px-2 py-1 rounded border border-gray-600">
+                            <option>Ubuntu (24.04)</option>
+                            <option>RHEL (8.1) - Pro</option>
+                            <option>OpenSuSE (15.1) - Pro</option>
+                            <option>Windows (PS 7) - Pro</option>
+                            <option>WebSSH - Pro</option>
+                        </select>
+                        <button class="text-gray-400 hover:text-white">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Terminal Body -->
+                <div id="terminal-container"></div>
+            </div>
+
+            <!-- Terminal Info -->
+            <div class="mt-6 text-gray-400 text-sm">
+                <p>Type <code class="bg-[#2a2e35] px-2 py-1 rounded text-green-400">help</code> to see available commands</p>
+                <p>Press <code class="bg-[#2a2e35] px-2 py-1 rounded text-green-400">Ctrl+C</code> to cancel current command</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#2a2e35] py-8 px-6 mt-20">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <span class="text-green-400 text-2xl">></span>
+                    <span class="text-xl font-semibold">Interactive Shell</span>
+                </div>
+                <div class="flex space-x-6 social-icons">
+                    <a href="https://www.facebook.com/interactivesh" class="text-2xl hover:text-green-400 transition-colors">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://x.com/interactivesh" class="text-2xl hover:text-green-400 transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@InteractiveShell" class="text-2xl hover:text-green-400 transition-colors">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center text-gray-400">
+                <p>© Interactive Shell 2025.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/terminal.js"></script>
+</body>
+</html>

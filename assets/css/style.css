@@ -1,0 +1,258 @@
+/* Base styles */
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Code styling */
+code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    background-color: #1a1d21;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(74, 158, 255, 0.1);
+}
+
+code:hover {
+    background-color: #2d3139;
+    border-color: rgba(74, 158, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Terminal window styling */
+.terminal-window {
+    background: #1a1d21;
+    border-radius: 12px;
+    border: 1px solid rgba(74, 158, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+                0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.terminal-window:hover {
+    border-color: rgba(74, 158, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1),
+                0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.terminal-header {
+    padding: 12px;
+    background: #2a2e35;
+    border-bottom: 1px solid rgba(74, 158, 255, 0.1);
+}
+
+.terminal-header .rounded-full {
+    transition: all 0.2s ease;
+}
+
+.terminal-window:hover .terminal-header .rounded-full {
+    transform: scale(1.1);
+}
+
+/* Mobile menu */
+.mobile-menu {
+    display: none;
+    background: #2a2e35;
+    border-bottom: 1px solid #3a3e45;
+}
+
+.mobile-menu.active {
+    display: block;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    z-index: 50;
+    animation: slideDown 0.3s ease-out;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.mobile-menu a:hover {
+    background: #3a3e45;
+    transform: translateX(4px);
+    color: #4ade80;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Cookie consent banner */
+#cookie-consent {
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#cookie-consent.hidden {
+    transform: translateY(100%);
+}
+
+/* OS Selection buttons */
+.os-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.os-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(74, 222, 128, 0.1), rgba(74, 158, 255, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.os-button:hover::before {
+    opacity: 1;
+}
+
+.os-button:hover {
+    transform: translateY(-2px);
+    border-color: rgba(74, 222, 128, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(74, 222, 128, 0.1);
+}
+
+.os-button i {
+    transition: transform 0.3s ease;
+}
+
+.os-button:hover i {
+    transform: scale(1.1);
+}
+
+/* Header animations */
+header {
+    transition: background-color 0.3s ease;
+}
+
+header:hover {
+    background-color: rgba(42, 46, 53, 0.95);
+}
+
+/* Social icons */
+.social-icons a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+}
+
+.social-icons a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #4ade80;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover::after {
+    transform: scaleX(1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1d21;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3a3e45;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4a4a4a;
+}
+
+/* Button styles */
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Focus styles */
+a:focus, button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.5);
+}
+
+/* Gradient text animation */
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.bg-gradient-to-r {
+    background-size: 200% auto;
+    animation: gradientFlow 8s ease infinite;
+}
+
+/* Terminal command prompt animation */
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.text-green-400 {
+    position: relative;
+}
+
+.terminal-window .flex:last-child .text-green-400::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 16px;
+    background-color: #4ade80;
+    animation: blink 1s step-end infinite;
+}
